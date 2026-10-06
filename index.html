@@ -117,26 +117,28 @@
       transform: translateY(-1px);
     }
 
-    /* ==================== HERO CONTAINER ==================== */
+    /* ==================== HERO CONTAINER (FULL-BLEED EDGE-TO-EDGE) ==================== */
     .hero-container {
+      width: 100%;
       position: relative;
       display: grid;
-      grid-template-columns: 1.05fr 1fr;
+      grid-template-columns: 50% 50%;
       min-height: 480px;
       background: var(--bg-navy);
-      border-bottom-left-radius: 46px;
-      border-bottom-right-radius: 46px;
+      border-radius: 0;
+      margin: 0;
       overflow: hidden;
-      box-shadow: 0 12px 36px rgba(34, 45, 66, 0.15);
+      box-shadow: 0 8px 30px rgba(18, 26, 45, 0.12);
     }
 
     .hero-content {
-      padding: 48px 46px 46px 48px;
+      padding: 64px 48px 64px max(120px, calc(50vw - 644px));
       display: flex;
       flex-direction: column;
       justify-content: center;
       z-index: 2;
       color: #ffffff;
+      background: var(--bg-navy);
     }
 
     .hero-eyebrow {
@@ -145,71 +147,77 @@
       letter-spacing: 1.6px;
       text-transform: uppercase;
       color: rgba(255, 255, 255, 0.72);
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
 
     .hero-title {
-      font-size: 46px;
+      font-size: 48px;
       font-weight: 800;
       line-height: 1.12;
       letter-spacing: -0.5px;
       color: #ffffff;
-      margin-bottom: 12px;
+      margin-bottom: 14px;
     }
 
     .hero-location {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      font-size: 13.5px;
+      font-size: 14px;
       font-weight: 500;
       color: rgba(255, 255, 255, 0.85);
-      margin-bottom: 26px;
+      margin-bottom: 24px;
     }
+
     .hero-location svg {
-      width: 14px;
-      height: 14px;
-      stroke: rgba(255, 255, 255, 0.9);
+      width: 16px;
+      height: 16px;
+      stroke: var(--color-coral);
+      stroke-width: 2.2;
       fill: none;
-      stroke-width: 2;
     }
 
     .hero-pills {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
+      align-items: center;
     }
 
     .hero-pill {
       display: inline-flex;
       align-items: center;
       gap: 7px;
-      background: rgba(255, 255, 255, 0.12);
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 7px 15px;
+      background: rgba(255, 255, 255, 0.10);
+      border: 1px solid rgba(255, 255, 255, 0.16);
       border-radius: var(--radius-pill);
-      padding: 7px 16px;
-      font-size: 11.5px;
+      font-size: 12px;
       font-weight: 500;
       color: #ffffff;
       white-space: nowrap;
+      backdrop-filter: blur(4px);
     }
+
     .hero-pill svg {
       width: 13px;
       height: 13px;
       fill: currentColor;
     }
+
     .hero-pill .dot {
-      width: 6px;
-      height: 6px;
-      background: rgba(255, 255, 255, 0.9);
+      width: 7px;
+      height: 7px;
+      background: var(--color-green);
       border-radius: 50%;
+      box-shadow: 0 0 6px var(--color-green);
     }
 
     .hero-image-wrap {
       position: relative;
       width: 100%;
       height: 100%;
+      min-height: 480px;
       overflow: hidden;
       background: #1e293b;
     }
@@ -218,38 +226,73 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center;
+      object-position: center 36%;
       display: block;
+      transition: transform 0.6s ease;
+    }
+
+    .hero-container:hover .hero-image-wrap img {
+      transform: scale(1.02);
     }
 
     .back-home-btn {
       position: absolute;
-      top: 20px;
-      right: 22px;
+      top: 28px;
+      right: max(28px, calc(50vw - 736px));
       background: #ffffff;
       color: var(--color-primary);
       border-radius: var(--radius-pill);
       padding: 8px 18px;
-      font-size: 12px;
+      font-size: 12.5px;
       font-weight: 700;
       text-decoration: none;
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.16);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.16);
       border: 1px solid rgba(0, 0, 0, 0.04);
       z-index: 10;
       cursor: pointer;
       transition: all 0.2s ease;
     }
+
     .back-home-btn:hover {
       transform: translateY(-1px);
       box-shadow: 0 6px 20px rgba(0, 0, 0, 0.22);
+      color: var(--color-coral);
     }
+
     .back-home-btn .cross {
-      font-size: 13px;
+      font-size: 14px;
       font-weight: 800;
       color: #111827;
+    }
+
+    .floating-dl-btn {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 9999;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--bg-navy);
+      color: #ffffff;
+      font-size: 12.5px;
+      font-weight: 700;
+      padding: 11px 20px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .floating-dl-btn:hover {
+      background: var(--color-coral);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(231, 88, 54, 0.35);
     }
 
     /* ==================== SUBNAV FLOATING PILL BAR ==================== */
@@ -1117,26 +1160,8 @@
 </head>
 <body>
 
-  <div class="frame-wrapper">
-
-    <!-- Top Floating Utility / Direct Download Bar -->
-    <div class="utility-bar">
-      <div class="utility-badge">
-        <span class="dot"></span>
-        <span>Khyber Pakhtunkhwa Tourism Portal &bull; Destination Guide</span>
-      </div>
-      <button class="download-btn" onclick="downloadCurrentHTML()" title="Download complete standalone HTML file">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-          <polyline points="7 10 12 15 17 10"/>
-          <line x1="12" y1="15" x2="12" y2="3"/>
-        </svg>
-        <span>Download HTML File</span>
-      </button>
-    </div>
-
-    <!-- ==================== HERO CONTAINER ==================== -->
-    <header class="hero-container" id="hero">
+  <!-- ==================== HERO CONTAINER (FULL-BLEED) ==================== -->
+  <header class="hero-container" id="hero">
       <div class="hero-content">
         <div class="hero-eyebrow">KHYBER PAKHTUNKHWA &bull; ATTRACTION GUIDE</div>
         <h1 class="hero-title">Kalash Valleys</h1>
@@ -1171,7 +1196,8 @@
       </div>
     </header>
 
-    <!-- ==================== FLOATING SUBNAV BAR (EXACT TAKHT-I-BAHI STYLE) ==================== -->
+  <div class="frame-wrapper">
+<!-- ==================== FLOATING SUBNAV BAR (EXACT TAKHT-I-BAHI STYLE) ==================== -->
     <nav class="subnav-bar" id="subnav">
       <div class="subnav-left">
         <span class="coral-dot"></span>
@@ -1596,5 +1622,15 @@
       }
     });
   </script>
+
+  <!-- Floating Direct Download Button -->
+  <button class="floating-dl-btn" onclick="downloadCurrentHTML()" title="Download complete standalone HTML file">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+      <polyline points="7 10 12 15 17 10"/>
+      <line x1="12" y1="15" x2="12" y2="3"/>
+    </svg>
+    <span>Download Standalone HTML</span>
+  </button>
 </body>
 </html>
