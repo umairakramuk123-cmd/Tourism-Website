@@ -11,24 +11,39 @@
   <style>
     :root {
       --font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-      --bg-page: #f1eff4;
-      --bg-card: #ffffff;
-      --bg-navy: #252849;
-      --navy-light: #32365e;
-      --navy-hover: #1c1e38;
-      --color-primary: #181b32;
-      --color-secondary: #4d5167;
-      --color-muted: #71768e;
-      --color-light-muted: #9ea3bc;
-      --color-coral: #e75836;
-      --color-coral-dark: #cf4726;
-      --color-green: #70a82c;
-      --color-green-hover: #619424;
-      --border-subtle: rgba(37, 40, 73, 0.05);
-      --border-card: rgba(37, 40, 73, 0.07);
-      --shadow-soft: 0 4px 20px rgba(37, 40, 73, 0.04);
-      --shadow-sm: 0 2px 8px rgba(37, 40, 73, 0.03);
-      --shadow-md: 0 8px 24px rgba(37, 40, 73, 0.07);
+
+      /* Exact Malam Jabba Color Tokens (100% matched) */
+      --ink: #232135;
+      --ink-soft: #3c3a4d;
+      --muted: #75737f;
+      --faint: #9a98a6;
+      --orange: #e8590c;
+      --green: #84cc16;
+      --dark: #312d6b;
+      --dark-2: #282459;
+      --card: #ffffff;
+      --line: #e7e5ee;
+      --hair: #eeedf3;
+
+      /* Semantic mappings */
+      --bg-page: var(--hair);
+      --bg-card: var(--card);
+      --bg-navy: var(--dark-2);
+      --navy-light: var(--dark);
+      --navy-hover: #1e1b43;
+      --color-primary: var(--ink);
+      --color-secondary: var(--ink-soft);
+      --color-muted: var(--muted);
+      --color-light-muted: var(--faint);
+      --color-coral: var(--orange);
+      --color-coral-dark: #cc4d0a;
+      --color-green: var(--green);
+      --color-green-hover: #73b313;
+      --border-subtle: var(--line);
+      --border-card: var(--line);
+      --shadow-soft: 0 4px 20px rgba(35, 33, 53, 0.04);
+      --shadow-sm: 0 2px 8px rgba(35, 33, 53, 0.03);
+      --shadow-md: 0 8px 24px rgba(35, 33, 53, 0.07);
       --radius-sm: 8px;
       --radius-md: 14px;
       --radius-lg: 18px;
@@ -220,7 +235,7 @@
       height: 100%;
       min-height: 480px;
       overflow: hidden;
-      background: #252849;
+      background: #282459;
     }
 
     .hero-image-wrap img {
@@ -702,7 +717,7 @@
       background: #38bdf8;
     }
     .highlight-circle-badge.orange {
-      background: #e75836;
+      background: #e8590c;
     }
     .highlight-circle-badge.light {
       background: #ffffff;
@@ -754,8 +769,8 @@
       background: #ffffff;
       border-radius: 24px;
       padding: 12px 12px 14px 12px;
-      border: 1px solid rgba(37, 40, 73, 0.06);
-      box-shadow: 0 4px 20px rgba(37, 40, 73, 0.04);
+      border: 1px solid var(--line);
+      box-shadow: 0 4px 20px rgba(35, 33, 53, 0.04);
       margin-bottom: 22px;
     }
 
@@ -1418,9 +1433,9 @@
                   <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="rgba(0,0,0,0.5)" />
                 </filter>
               </defs>
-              <path d="M16,0 C7.16,0 0,7.16 0,16 C0,27 16,44 16,44 C16,44 32,27 32,16 C32,7.16 24.84,0 16,0 Z" fill="#e75836" filter="url(#pinShadow)" />
+              <path d="M16,0 C7.16,0 0,7.16 0,16 C0,27 16,44 16,44 C16,44 32,27 32,16 C32,7.16 24.84,0 16,0 Z" fill="#e8590c" filter="url(#pinShadow)" />
               <circle cx="16" cy="15" r="6" fill="#ffffff" />
-              <circle cx="16" cy="15" r="3.5" fill="#e75836" />
+              <circle cx="16" cy="15" r="3.5" fill="#e8590c" />
             </svg>
           </div>
 
@@ -1557,7 +1572,7 @@
       <h3 id="modalTitle" style="font-size:18px; font-weight:800; color:#111827; margin-bottom:12px;"></h3>
       <p id="modalBody" style="font-size:13px; line-height:1.6; color:#4b5563; margin-bottom:20px European;"></p>
       <div style="text-align:right;">
-        <button onclick="closeHighlightModal()" style="background:#252849; color:#ffffff; border:none; padding:8px 20px; border-radius:9999px; font-weight:700; font-size:12px; cursor:pointer;">Close</button>
+        <button onclick="closeHighlightModal()" style="background:#282459; color:#ffffff; border:none; padding:8px 20px; border-radius:9999px; font-weight:700; font-size:12px; cursor:pointer;">Close</button>
       </div>
     </div>
   </div>
